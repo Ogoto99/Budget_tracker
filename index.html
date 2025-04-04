@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center mb-6">Budget Tracker</h1>
+
+        <!-- Form Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <form id="transaction-form" class="flex flex-col md:flex-row gap-4">
+                <input type="text" id="description" placeholder="Description" class="flex-1 p-2 border rounded-md" required>
+                <input type="number" id="amount" placeholder="Amount" class="flex-1 p-2 border rounded-md" required>
+                <select id="type" class="p-2 border rounded-md">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Add</button>
+            </form>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <div class="flex justify-between">
+                <div>
+                    <h2 class="text-lg font-semibold">Total Income</h2>
+                    <p id="total-income" class="text-green-500 text-xl font-bold">$0</p>
+                </div>
+                <div>
+                    <h2 class="text-lg font-semibold">Total Expenses</h2>
+                    <p id="total-expenses" class="text-red-500 text-xl font-bold">$0</p>
+                </div>
+                <div>
+                    <h2 class="text-lg font-semibold">Balance</h2>
+                    <p id="balance" class="text-gray-800 text-xl font-bold">$0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transactions Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between mb-4">
+                <h2 class="text-lg font-semibold">Transactions</h2>
+                <div class="flex gap-2">
+                    <button id="filter-all" class="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300">All</button>
+                    <button id="filter-income" class="bg-green-200 px-4 py-2 rounded-md hover:bg-green-300">Income</button>
+                    <button id="filter-expense" class="bg-red-200 px-4 py-2 rounded-md hover:bg-red-300">Expenses</button>
+                </div>
+            </div>
+            <ul id="transaction-list" class="space-y-4">
+                <!-- Transactions will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
